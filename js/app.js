@@ -88,34 +88,33 @@ var APP = APP || {};
 			    '/movies': function() {
 			    	APP.page.movies();
 			    }
-			    // '*': function() {
-			    // 	APP.page.render('schedule');
-			    // }
+			    '*': function() {
+			    	APP.page.render('schedule');
+			    }
 			});
 		},
 
-};
 	// 	//hier wordt bekeken welke pagina er geladen moet worden, d
-	// 	change: function () {
- //            var route = window.location.hash.slice(2),
- //                sections = qwery('section'),
- //                section = qwery('[data-route=' + route + ']')[0];
+		change: function () {
+	        	var route = window.location.hash.slice(2),
+                	sections = qwery('section'),
+                 	section = qwery('[data-route=' + route + ']')[0];
 
- //            // Show active section, hide all other
- //            if (section) {
- //            	for (var i=0; i < sections.length; i++){
- //            		sections[i].classList.remove('active');
- //            	}
- //            	section.classList.add('active');
- //            }
+        		//Show active section, hide all other
+        		if (section) {
+             			for (var i=0; i < sections.length; i++){
+             			sections[i].classList.remove('active');
+             		}
+             		section.classList.add('active');
+                }
 
- //            // Default route
- //            if (!route) {
- //            	sections[0].classList.add('active');
- //            }
+             // Default route
+             	if (!route) {
+             		sections[0].classList.add('active');
+             	}
 
-	// 	}
-	 // };
+		}
+	};
 // //get
 // promise.get('http://dennistel.nl/movies').then(function(error, text, xhr) {
 //     if (error) {
@@ -163,10 +162,17 @@ APP.page = {
 		Transparency.render(document.getElementById('moviesData'), getData);
 			});
 		}
-		
-		
 	}
 	
+	//Misschien een aparte functie maken om je data op te halen. DRY werken ;)
+	APP.dataOphaler = function(pagina, url) {
+		//Je Promise call
+	}
+	
+	//En maak dan ook gelijk een aparte data verzender
+	APP.dataVerzender = function() {
+		//Haal bevoorbeeld de gameId van de game die je wilt aanpassen uit de header url. 
+	}
 
 	//hiermee wordt de applicatie gestart.
 	// DOM ready
